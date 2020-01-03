@@ -8,16 +8,16 @@ import java.util.Collection;
 
 public class ResultPage {
     private WebDriver driver;
-    private WebDriverWait wait;
-    private By firstlink = By.xpath("//*[@class='bkWMgd']/div[@class='g']//a/h");
+   // private WebDriverWait wait;
+   // private By firstlink = By.xpath("//*[@class='bkWMgd']/div[@class='g']//a/h");
 
     public ResultPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(this.driver, 10);
+      //  this.wait = new WebDriverWait(this.driver, 10);
     }
 
     public String getFirstLink() {
-        WebElement result = wait.until(ExpectedConditions.presenceOfElementLocated(firstlink));
-        return  wait.until(ExpectedConditions.visibilityOf(result)).getText();  ////*[@id='rso']//a[1]
+       // WebElement result = wait.until(ExpectedConditions.presenceOfElementLocated(firstlink));
+        return driver.findElement(By.xpath("//*[@class='bkWMgd']/div[@class='g']//a/h")).getText();  ////*[@id='rso']//a[1]
     }
 }
